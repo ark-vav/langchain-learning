@@ -1,6 +1,6 @@
-Dawg, here's a clean cheat sheet you can keep in your notes.
+oo teri ki notes : 
 
-## 📝 Sequential Chain
+##  Sequential Chain
 
 * Executes components **one after another**.
 * Output of one step becomes the input of the next.
@@ -23,7 +23,7 @@ Output
 
 ---
 
-## 📝 Parallel Chain
+##  Parallel Chain
 
 * Executes **multiple chains simultaneously**.
 * All branches receive the **same input**.
@@ -49,7 +49,7 @@ Output
 
 ---
 
-## 📝 Conditional Chain
+##  Conditional Chain
 
 * Chooses **which chain to execute** based on a condition.
 * Only **one branch** runs.
@@ -74,7 +74,7 @@ Output
 
 ---
 
-## 🚀 Quick Comparison
+##  Quick Comparison
 
 | Chain Type      | Execution         | Use Case                            |
 | --------------- | ----------------- | ----------------------------------- |
@@ -84,7 +84,7 @@ Output
 
 ---
 
-### 🧠 Easy way to remember
+###  Easy way to remember
 
 * **Sequential** = **Do this, then that.**
 * **Parallel** = **Do everything at the same time.**
