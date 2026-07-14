@@ -1,0 +1,65 @@
+===========================================================
+WHEN TO USE TYPEDDICT, PYDANTIC & JSON SCHEMA
+===========================================================
+
+✅ Use TypedDict if:
+---------------------
+• You only need type hints (basic structure enforcement).
+• You don't need validation (e.g., checking numbers are positive).
+• You trust the LLM to return correct data.
+
+
+✅ Use Pydantic if:
+-------------------
+• You need data validation (e.g., sentiment must be "positive", "neutral", or "negative").
+• You need default values if the LLM misses fields.
+• You want automatic type conversion (e.g., "100" → 100).
+
+
+✅ Use JSON Schema if:
+----------------------
+• You don't want to import extra Python libraries (like Pydantic).
+• You need validation but don't need Python objects.
+• You want to define structure in a standard JSON format.
+
+
+===========================================================
+WHEN TO USE WHAT?
+===========================================================
+
+Feature                         TypedDict   Pydantic   JSON Schema
+------------------------------------------------------------------
+Basic structure                    ✅          ✅            ✅
+Type enforcement                   ✅          ✅            ✅
+Data validation                    ❌          ✅            ✅
+Default values                     ❌          ✅            ❌
+Automatic conversion               ❌          ✅            ❌
+Cross-language compatibility       ❌          ❌            ✅
+
+
+===========================================================
+QUICK RULE OF THUMB
+===========================================================
+
+TypedDict
+----------
+✔ Defines only the structure of a dictionary.
+✔ Lightweight and fast.
+✔ Returns a normal Python dict.
+✔ Best when you trust the LLM's output.
+
+Pydantic
+---------
+✔ Defines and validates a data model.
+✔ Returns a Pydantic BaseModel object.
+✔ Supports validation, default values, type conversion, and Field().
+✔ Best for production applications.
+
+JSON Schema
+-----------
+✔ Language-independent schema.
+✔ Used across different programming languages.
+✔ Good when exchanging structured data between systems.
+✔ Doesn't create Python objects like Pydantic.
+
+===========================================================

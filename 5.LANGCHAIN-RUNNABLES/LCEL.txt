@@ -1,0 +1,27 @@
+# LCEL (LangChain Expression Language) is a declarative syntax for building LangChain workflows by composing Runnables.
+# It provides a simple and readable way to connect prompts, models, parsers, retrievers, and other components.
+# LCEL uses the `|` operator to chain Runnables together into RunnableSequences.
+# It supports sequential, parallel, and conditional execution of workflows.
+# LCEL automatically handles data flow between connected Runnables.
+# Every component in an LCEL workflow is a Runnable, ensuring a standardized interface.
+# LCEL improves code readability, modularity, and reusability.
+# It supports synchronous, asynchronous, batch, and streaming execution.
+# LCEL is the foundation for building complex AI applications and LangGraph workflows.
+#
+# Basic Flow:
+#
+# Input
+#   │
+# Prompt
+#   │
+# Model
+#   │
+# Output Parser
+#   │
+# Output
+
+# RunnableSequence → Executes Runnables sequentially.
+# RunnableParallel → Executes multiple Runnables simultaneously.
+# RunnableBranch → Routes execution based on conditions.
+# RunnableLambda → Wraps custom Python functions as Runnables.
+# RunnablePassthrough → Passes input unchanged to the next Runnable.

@@ -1,0 +1,203 @@
+===========================================
+        LANGCHAIN OUTPUT PARSERS
+===========================================
+
+1. StrOutputParser
+------------------
+
+Purpose:
+- Converts the LLM response into a plain Python string.
+
+Input:
+- AIMessage
+
+Output:
+- str
+
+Example Output:
+"Black holes are regions of spacetime with extremely strong gravity."
+
+Best Use Cases:
+- Chatbots
+- Summarization
+- Translation
+- Text generation
+- Simple LLM applications
+
+Advantages:
+✔ Very easy to use
+✔ Fast
+✔ No formatting instructions required
+
+Disadvantages:
+✘ No structured output
+✘ Difficult to extract multiple values
+
+
+===========================================
+
+2. JsonOutputParser
+-------------------
+
+Purpose:
+- Converts the LLM response into a Python dictionary by enforcing JSON output.
+
+Input:
+- AIMessage
+
+Output:
+- dict
+
+Example Output:
+
+{
+    "title": "Black Hole",
+    "summary": "A black hole is a region of spacetime..."
+}
+
+Best Use Cases:
+- APIs
+- Backend applications
+- Agent workflows
+- Returning multiple fields
+
+Advantages:
+✔ Structured output
+✔ Easy to access values
+✔ Great for automation
+
+Disadvantages:
+✘ Model must generate valid JSON
+✘ Invalid JSON causes parsing errors
+
+
+===========================================
+
+3. StructuredOutputParser (Legacy)
+----------------------------------
+
+Purpose:
+- Guided the model to generate structured outputs using ResponseSchema.
+
+Input:
+- AIMessage
+
+Output:
+- Dictionary
+
+Example:
+
+ResponseSchema(
+    name="summary",
+    description="Summary of the text"
+)
+
+Best Use Cases:
+- Older LangChain (0.x) tutorials
+- Legacy projects
+
+Advantages:
+✔ Easier than manually writing JSON prompts
+✔ Schema-based guidance
+
+Disadvantages:
+✘ Deprecated in modern LangChain
+✘ Removed from LangChain 1.x
+✘ Replaced by Pydantic-based structured outputs
+
+
+===========================================
+
+4. PydanticOutputParser
+-----------------------
+
+Purpose:
+- Parses the LLM response into a validated Pydantic object.
+
+Input:
+- AIMessage
+
+Output:
+- Pydantic Model
+
+Example:
+
+class Person(BaseModel):
+    name: str
+    age: int
+
+Output:
+
+Person(
+    name="John",
+    age=25
+)
+
+Best Use Cases:
+- Production AI applications
+- LangGraph
+- Agentic AI
+- APIs
+- Strongly typed applications
+
+Advantages:
+✔ Type validation
+✔ Cleaner code
+✔ IDE autocompletion
+✔ Detects invalid outputs
+✔ Production-ready
+
+Disadvantages:
+✘ Slightly more setup
+✘ Requires defining a Pydantic model
+
+
+===========================================
+            QUICK COMPARISON
+===========================================
+
+Parser                  Output              Validation        Modern?
+---------------------------------------------------------------------------
+StrOutputParser         String              ❌ No            ✅ Yes
+JsonOutputParser        Dictionary          ✔ JSON          ✅ Yes
+StructuredOutputParser  Dictionary          ✔ Schema        ❌ No (Deprecated)
+PydanticOutputParser    Pydantic Object     ✔ Strong        ✅ Yes
+
+
+===========================================
+         WHEN SHOULD YOU USE EACH?
+===========================================
+
+Use StrOutputParser when:
+✔ You only need plain text.
+
+Use JsonOutputParser when:
+✔ You need JSON or a dictionary.
+
+Use StructuredOutputParser when:
+✔ You're following an old LangChain tutorial (0.x).
+✔ Not recommended for new projects.
+
+Use PydanticOutputParser when:
+✔ Building production AI applications.
+✔ Working with LangGraph.
+✔ Building Agentic AI.
+✔ You want validation and type safety.
+
+
+===========================================
+        LEARNING ORDER (2026)
+===========================================
+
+1. StrOutputParser
+        ↓
+2. JsonOutputParser
+        ↓
+3. PydanticOutputParser
+        ↓
+4. model.with_structured_output() ⭐ (Modern LangChain 1.x)
+
+NOTE:
+StructuredOutputParser is now considered a legacy parser.
+Modern LangChain (1.x) encourages using PydanticOutputParser
+or model.with_structured_output() instead.

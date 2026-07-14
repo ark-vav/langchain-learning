@@ -1,0 +1,36 @@
+Thank you for providing your feedback. I'm sorry to hear that you had a negative experience.
+Could you please provide more details about what didn't meet your expectations? Understanding your concerns will help us improve. 
+We value your input and are committed to resolving any issues to your satisfaction.
+    +-------------+      
+    | PromptInput |      
+    +-------------+      
+            *            
+            *            
+            *            
+   +----------------+    
+   | PromptTemplate |    
+   +----------------+    
+            *            
+            *            
+            *            
+  +-----------------+    
+  | ChatHuggingFace |    
+  +-----------------+    
+            *            
+            *            
+            *            
++----------------------+ 
+| PydanticOutputParser | 
++----------------------+ 
+            *            
+            *            
+            *            
+       +--------+        
+       | Branch |        
+       +--------+        
+            *            
+            *            
+            *            
+    +--------------+     
+    | BranchOutput |     
+    +--------------+   
